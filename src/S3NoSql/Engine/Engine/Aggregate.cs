@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using S3NoSql.Document;
 using S3NoSql.Engine.Queries;
 
 namespace S3NoSql.Engine
 {
     public partial class S3NoSqlEngine
     {
-        public IEnumerable<BsonDocument> Find(string colName, Query query, int skip = 0, int limit = int.MaxValue)
+        public bool Exists(string colName, Query query)
         {
             throw new NotImplementedException();
         }
+
     }
 }

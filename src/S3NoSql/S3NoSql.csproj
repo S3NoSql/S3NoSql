@@ -93,6 +93,11 @@
     <Compile Include="Engine\Queries\QueryWhere.cs" />
     <Compile Include="Engine\Engine\Find.cs" />
     <Compile Include="Utils\S3NamingHelper.cs" />
+    <Compile Include="Storage\S3NoSqlFileInfo.cs" />
+    <Compile Include="Utils\MimeTypeConverter.cs" />
+    <Compile Include="Storage\S3NoSqlStorage.cs" />
+    <Compile Include="Engine\Engine\Aggregate.cs" />
+    <Compile Include="Utils\S3Helper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -134,6 +139,7 @@
     <Folder Include="Engine\" />
     <Folder Include="Mapper\Linq\" />
     <Folder Include="Engine\Queries\" />
+    <Folder Include="Storage\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

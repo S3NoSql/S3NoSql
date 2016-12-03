@@ -9,5 +9,13 @@ namespace S3NoSql.Utils.Extensions
         {
             return string.IsNullOrWhiteSpace(_str);
         }
+
+        public static void AssertNullOrWhiteSpace(this string _str)
+        {
+            if (string.IsNullOrWhiteSpace(_str))
+            {
+                throw S3NoSqlException.
+            }
+        }
     }
 }

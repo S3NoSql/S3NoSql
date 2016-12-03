@@ -94,7 +94,7 @@ Files may be any size up to 5TB.  Files will be stored in two parts
 
 ####File Info
 
-	s3://bucketname/databasename/files/info/92386a7e-698e-4826-a976-fb796fb1e8c1.bson
+	s3://bucketname/databasename/_file/92386a7e-698e-4826-a976-fb796fb1e8c1.bson
 	
 Data Stored in file info
 * Id - The unique identifier of the file.
@@ -107,7 +107,7 @@ Data Stored in file info
 ####File Data
 The file data is the raw bytes.
 
-	s3://bucketname/databasename/files/data/92386a7e-698e-4826-a976-fb796fb1e8c1.bin
+	s3://bucketname/databasename/_data/92386a7e-698e-4826-a976-fb796fb1e8c1.bin
 	
 
 ## Suggested Bucket Settings

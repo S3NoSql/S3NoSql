@@ -41,6 +41,8 @@ namespace S3NoSql.Utils
         public const int PROPERTY_NOT_MAPPED = 206;
         public const int INVALID_TYPED_NAME = 207;
 
+        public const int NULL_PARAMETER = 1000;
+
         #endregion
 
         public int ErrorCode { get; private set; }
@@ -187,5 +189,16 @@ namespace S3NoSql.Utils
         }
 
         #endregion
+
+
+        internal static S3NoSqlException NullParameter(string _parameter = null)
+        {
+            if (_parameter == null)
+            {
+                return new S3NoSqlException(NULL_PARAMETER, "Required prameter was null");
+            }
+
+            return new S3NoSqlException(NULL_PARAMETER, string.Format("The {0} parameter is required and is null", _parameter);
+        }
     }
 }

@@ -32,24 +32,6 @@ namespace S3NoSql.Utils
             return string.Format("{0}/{1}/{2}/{3}.bson", _bucketName, databaseName, collectionName, documentId);
         }
 
-        public static string GetBinaryInfo(string _bucketName, string _databaseName, string _documentId)
-        {
-            ValidateName(_bucketName);
-            string databaseName = FormatName(_databaseName);
-            string documentId = FormatName(_documentId);
-
-            return string.Format("{0}/{1}/files/info/{2}.bson", _bucketName, databaseName, documentId);
-        }
-
-        public static string GetBinaryFile(string _bucketName, string _databaseName, string _documentId)
-        {
-            ValidateName(_bucketName);
-            string databaseName = FormatName(_databaseName);
-            string documentId = FormatName(_documentId);
-
-            return string.Format("{0}/{1}/files/data/{2}.bin", _bucketName, databaseName, documentId);
-        }
-
         private static void ValidateName(string _sourceName)
         {
             _sourceName.IsNullOrWhiteSpace();

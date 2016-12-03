@@ -14,7 +14,9 @@ namespace S3NoSql.Engine
         private string m_AwsRegion = null;
         private IAmazonS3 m_S3Client;
 
-        public S3NoSqlEngine(string _awsKey, string _awsSecret, string _awsRegion, string _bucket)
+
+
+        public S3NoSqlEngine(string _awsKey, string _awsSecret, string _awsRegion, string _bucket, string _database)
         {
             m_AwsKey = _awsKey;
             m_AwsSecret = _awsSecret;
@@ -25,6 +27,7 @@ namespace S3NoSql.Engine
             m_S3Client = new AmazonS3Client(credentials, S3Helper.GetRegionEndpoint(m_AwsRegion));
 
             Bucket = _bucket;
+            Database = _database;
         }
 
         /// <summary>
@@ -33,7 +36,7 @@ namespace S3NoSql.Engine
         /// <param name="_awsRegion">Aws region.</param>
         /// <param name="_bucket">Bucket.</param>
         /// <param name="_roleName">If specified will use the requested role.</param>
-        public S3NoSqlEngine(string _awsRegion, string _bucket, string _roleName = null)
+        public S3NoSqlEngine(string _awsRegion, string _bucket, string _database, string _roleName = null)
         {
             m_AwsRegion = _awsRegion;
 
@@ -51,9 +54,11 @@ namespace S3NoSql.Engine
             m_S3Client = new AmazonS3Client(credentials, S3Helper.GetRegionEndpoint(m_AwsRegion));
 
             Bucket = _bucket;
+            Database = _database;
         }
 
         public string Bucket { get; private set; }
+        public string Database { get; private set; }
 
         public void Dispose()
         {

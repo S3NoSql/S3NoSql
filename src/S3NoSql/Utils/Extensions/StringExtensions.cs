@@ -14,7 +14,7 @@ namespace S3NoSql.Utils.Extensions
         {
             if (string.IsNullOrWhiteSpace(_str))
             {
-                throw S3NoSqlException.
+                throw S3NoSqlException.NullParameter();
             }
         }
     }

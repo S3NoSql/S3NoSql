@@ -5,31 +5,37 @@ namespace S3NoSql.Utils
 {
     public static class S3NamingHelper
     {
-        public static string GetDatabase(string _bucketName, string _databaseName)
+        public static string GetDatabase(string _databaseName)
         {
-            ValidateName(_bucketName);
             string databaseName = FormatName(_databaseName);
 
-            return string.Format("{0}/{1}", _bucketName, _databaseName);
+            return string.Format("{0}", _databaseName);
         }
 
-        public static string GetCollection(string _bucketName, string _databaseName, string _collectionName)
+        public static string GetCollection(string _databaseName, string _collectionName)
         {
-            ValidateName(_bucketName);
             string databaseName = FormatName(_databaseName);
             string collectionName = FormatName(_collectionName);
 
-            return string.Format("{0}/{1}/{2}", _bucketName, databaseName, collectionName);
+            return string.Format("{0}/{1}", databaseName, collectionName);
         }
 
-        public static string GetDocument(string _bucketName, string _databaseName, string _collectionName, string _documentId)
+        public static string GetDocument(string _databaseName, string _collectionName, string _documentId)
         {
-            ValidateName(_bucketName);
             string databaseName = FormatName(_databaseName);
             string collectionName = FormatName(_collectionName);
             string documentId = FormatName(_documentId);
 
-            return string.Format("{0}/{1}/{2}/{3}.bson", _bucketName, databaseName, collectionName, documentId);
+            return string.Format("{0}/{1}/{2}.bson", databaseName, collectionName, documentId);
+        }
+
+        public static string GetBinaryFile(string _databaseName, string _collectionName, string _documentId)
+        {
+            string databaseName = FormatName(_databaseName);
+            string collectionName = FormatName(_collectionName);
+            string documentId = FormatName(_documentId);
+
+            return string.Format("{0}/{1}/{2}.bin", databaseName, collectionName, documentId);
         }
 
         private static void ValidateName(string _sourceName)

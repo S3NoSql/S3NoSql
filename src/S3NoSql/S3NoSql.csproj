@@ -98,6 +98,7 @@
     <Compile Include="Storage\S3NoSqlStorage.cs" />
     <Compile Include="Engine\Engine\Aggregate.cs" />
     <Compile Include="Utils\S3Helper.cs" />
+    <Compile Include="Utils\Extensions\StreamExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

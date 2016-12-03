@@ -198,7 +198,7 @@ namespace S3NoSql.Utils
                 return new S3NoSqlException(NULL_PARAMETER, "Required prameter was null");
             }
 
-            return new S3NoSqlException(NULL_PARAMETER, string.Format("The {0} parameter is required and is null", _parameter);
+            return new S3NoSqlException(NULL_PARAMETER, string.Format("The {0} parameter is required and is null", _parameter));
         }
     }
 }

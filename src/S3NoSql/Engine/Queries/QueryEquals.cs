@@ -17,6 +17,15 @@ namespace S3NoSql.Engine.Queries
             _value = value;
         }
 
+
+        internal BsonValue Value
+        {
+            get
+            {
+                return _value;
+            }
+        }
+
         //internal override IEnumerable<IndexNode> ExecuteIndex(IndexService indexer, CollectionIndex index)
         //{
         //    var node = indexer.Find(index, _value, false, Query.Ascending);

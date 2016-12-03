@@ -13,16 +13,15 @@ namespace S3NoSqlLibrary.Database
         private BsonMapper m_Mapper = BsonMapper.Global;
         private Logger m_Log = new Logger();
 
-        public S3NoSqlDatabase(string _awsKey, string _awsSecret, string _bucket)
+        public S3NoSqlDatabase(string _awsKey, string _awsSecret, string _awsRegion, string _bucket, string _database)
         {
-            m_Engine = new S3NoSqlEngine(_awsKey, _awsSecret, _bucket);
+            m_Engine = new S3NoSqlEngine(_awsKey, _awsSecret, _awsRegion, _bucket, _database);
         }
 
-        public S3NoSqlDatabase(string _bucket)
+        public S3NoSqlDatabase(string _awsRegion, string _bucket, string _database)
         {
-            m_Engine = new S3NoSqlEngine(_bucket);
+            m_Engine = new S3NoSqlEngine(_awsRegion, _bucket, _database);
         }
-
 
         public S3NoSqlCollection<T> GetCollection<T>(string _name) where T : new()
         {
@@ -30,7 +29,5 @@ namespace S3NoSqlLibrary.Database
 
             return new S3NoSqlCollection<T>(_name, m_Engine, m_Mapper, m_Log);
         }
-
-
     }
 }

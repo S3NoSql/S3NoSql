@@ -22,10 +22,8 @@ namespace S3NoSql.Database.Collections
                 // must try get first doc inside try/catch to get index not found (yield returns are not supported inside try/catch)
                 while (true)
                 {
-                    var task = m_Engine.Find(Name, query, skip, limit);
-                    Task.WaitAll(task);
-
-                    enumerator = (IEnumerator<BsonDocument>)task.Result.GetEnumerator();
+                    var result = m_Engine.Find(Name, query, skip, limit);
+                    enumerator = result.GetEnumerator();
 
                     more = enumerator.MoveNext();
 

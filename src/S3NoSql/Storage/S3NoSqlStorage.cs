@@ -133,10 +133,7 @@ namespace S3NoSql.Storage
         {
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
 
-            var task = m_Engine.Find(FILE, Query.EQ("_id", id));
-            Task.WaitAll(task);
-
-            var doc = task.Result.FirstOrDefault();
+            var doc = m_Engine.Find(FILE, Query.EQ("_id", id)).FirstOrDefault();
 
             if (doc == null) return null;
 
@@ -158,10 +155,7 @@ namespace S3NoSql.Storage
         {
             var query = Query.All();
 
-            var task = m_Engine.Find(FILE, query);
-            Task.WaitAll(task);
-
-            var docs = task.Result;
+            var docs = m_Engine.Find(FILE, query);
 
             foreach (var doc in docs)
             {

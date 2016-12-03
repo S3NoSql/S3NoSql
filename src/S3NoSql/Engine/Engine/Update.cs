@@ -25,10 +25,8 @@ namespace S3NoSql.Engine
 
             foreach (var doc in docs)
             {
-                if (InsertDocument(colName, doc))
-                {
-                    count++;
-                }
+                InsertDocument(colName, doc);
+                count++;
             }
 
             return count;

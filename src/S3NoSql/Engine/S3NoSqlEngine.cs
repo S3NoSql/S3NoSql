@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace S3NoSql.Engine
 {
-    public class S3NoSqlEngine : IDisposable
+    public partial class S3NoSqlEngine : IDisposable
     {
         private string m_AwsKey = null;
         private string m_AwsSecret = null;

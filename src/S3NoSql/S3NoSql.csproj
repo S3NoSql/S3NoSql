@@ -92,6 +92,7 @@
     <Compile Include="Engine\Queries\QueryStartsWith.cs" />
     <Compile Include="Engine\Queries\QueryWhere.cs" />
     <Compile Include="Engine\Engine\Find.cs" />
+    <Compile Include="Utils\S3NamingHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

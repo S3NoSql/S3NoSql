@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*--------------------------------------------------------------------------------*/
+/* Taken from LiteDB (https://github.com/mbdavid/LiteDB/)
+/*--------------------------------------------------------------------------------*/
+using System;
 using System.Linq.Expressions;
 using System.Text;
 using System.Text.RegularExpressions;

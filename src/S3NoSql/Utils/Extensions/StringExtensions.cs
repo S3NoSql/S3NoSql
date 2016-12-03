@@ -1,4 +1,7 @@
-﻿namespace S3NoSql.Utils.Extensions
+﻿/*--------------------------------------------------------------------------------*/
+/* Adapted from LiteDB (https://github.com/mbdavid/LiteDB/)
+/*--------------------------------------------------------------------------------*/
+namespace S3NoSql.Utils.Extensions
 {
     internal static class StringExtensions
     {

@@ -14,8 +14,6 @@ namespace S3NoSql.Engine
         private string m_AwsRegion = null;
         private IAmazonS3 m_S3Client;
 
-
-
         public S3NoSqlEngine(string _awsKey, string _awsSecret, string _awsRegion, string _bucket, string _database)
         {
             m_AwsKey = _awsKey;

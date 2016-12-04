@@ -2,7 +2,6 @@
   "dependencies": {
     "AWSSDK.Core": "3.3.5",
     "AWSSDK.S3": "3.3.4",
-    "Newtonsoft.Json": "9.0.1",
     "PCLCrypto": "2.0.147",
     "PCLStorage": "1.0.2",
     "PInvoke.BCrypt": "0.3.2",

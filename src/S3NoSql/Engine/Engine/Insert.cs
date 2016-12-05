@@ -59,7 +59,7 @@ namespace S3NoSql.Engine
 
             using (MemoryStream stream = new MemoryStream(bytes))
             {
-                S3Helper.WriteDocument(m_S3Client, Bucket, Database, _collectionName, id.AsString, "application/ubjson", stream);
+                S3Helper.WriteDocument(m_S3Client, DataBucket, Database, _collectionName, id.AsString, "application/ubjson", stream);
             }
 
             //TODO Queue calculation of the indexes for this document 

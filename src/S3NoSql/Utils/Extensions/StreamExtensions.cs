@@ -34,9 +34,8 @@ namespace S3NoSql.Utils.Extensions
 
         public static byte[] ReadToEnd(this Stream input)
         {
-            long pos = input.Position;
             long lenth = input.Length;
-            long remaining = lenth - pos;
+            long remaining = lenth;
 
             byte[] data = new byte[remaining];
             input.Read(data, 0, (int)remaining);

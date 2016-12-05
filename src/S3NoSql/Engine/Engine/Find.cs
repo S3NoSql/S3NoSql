@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
 using S3NoSql.Document;
 using S3NoSql.Document.Bson;
 using S3NoSql.Engine.Queries;
@@ -43,10 +42,7 @@ namespace S3NoSql.Engine
 
         internal IEnumerable<BsonDocument> GetAll(string _collectionName)
         {
-            var task = S3Helper.ListIds(m_S3Client, Bucket, Database, _collectionName);
-            Task.WaitAll(task);
-
-            var ids = task.Result;
+            var ids = S3Helper.ListIds(m_S3Client, Bucket, Database, _collectionName);
 
             List<BsonDocument> docs = new List<BsonDocument>();
 
@@ -60,10 +56,7 @@ namespace S3NoSql.Engine
 
         internal BsonDocument GetById(string _collectionName, string _id)
         {
-            var task = S3Helper.ReadDocument(m_S3Client, Bucket, Database, _collectionName, _id);
-            Task.WaitAll(task);
-
-            using (Stream stream = task.Result)
+            using (Stream stream = S3Helper.ReadDocument(m_S3Client, Bucket, Database, _collectionName, _id))
             {
                 byte[] data = stream.ReadToEnd();
                 BsonDocument doc = BsonSerializer.Deserialize(data);

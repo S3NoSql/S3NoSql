@@ -31,7 +31,7 @@ namespace S3NoSql.Utils
             throw new NotImplementedException("Region not currently implemented in S3Helper.  Add requested region");
         }
 
-        public static async Task WriteDocument(
+        public static void WriteDocument(
             IAmazonS3 _s3Client,
             string _bucketName,
             string _databaseName,
@@ -50,10 +50,11 @@ namespace S3NoSql.Utils
                 InputStream = _dataStream
             };
 
-            PutObjectResponse response = await _s3Client.PutObjectAsync(request);
+            Task<PutObjectResponse> task = _s3Client.PutObjectAsync(request);
+            Task.WaitAll(task);
         }
 
-        public static async Task<Stream> ReadDocument(
+        public static Stream ReadDocument(
             IAmazonS3 _s3Client,
             string _bucketName,
             string _databaseName,
@@ -68,12 +69,13 @@ namespace S3NoSql.Utils
                 Key = key
             };
 
-            GetObjectResponse response = await _s3Client.GetObjectAsync(request);
+            Task<GetObjectResponse> task = _s3Client.GetObjectAsync(request);
+            Task.WaitAll(task);
 
-            return response.ResponseStream;
+            return task.Result.ResponseStream;
         }
 
-        public static async Task WriteBinary(
+        public static void WriteBinary(
             IAmazonS3 _s3Client,
             string _bucketName,
             string _databaseName,
@@ -92,7 +94,8 @@ namespace S3NoSql.Utils
                 InputStream = _dataStream
             };
 
-            PutObjectResponse response = await _s3Client.PutObjectAsync(request);
+            Task<PutObjectResponse> task = _s3Client.PutObjectAsync(request);
+            Task.WaitAll(task);
         }
 
         public static async Task<Stream> ReadBinary(
@@ -115,7 +118,7 @@ namespace S3NoSql.Utils
             return response.ResponseStream;
         }
 
-        public static async Task<IEnumerable<string>> ListIds(
+        public static IEnumerable<string> ListIds(
             IAmazonS3 _s3Client,
             string _bucketName,
             string _databaseName,
@@ -129,7 +132,10 @@ namespace S3NoSql.Utils
                 Prefix = prefix
             };
 
-            ListObjectsResponse response = await _s3Client.ListObjectsAsync(request);
+            Task<ListObjectsResponse> task = _s3Client.ListObjectsAsync(request);
+            Task.WaitAll(task);
+
+            ListObjectsResponse response = task.Result;
 
             List<string> ids = new List<string>();
 

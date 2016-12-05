@@ -29,9 +29,7 @@ Obviously, requiring users to setup a AWS Account, create a bucket, assign a pol
 
 ## C# Api
 
-S3NoSql is borrows heavily from LiteDb (https://github.com/mbdavid/LiteDB/).   
-
-LiteDb was designed as a c# native embedded database after MongoDb concepts.  LiteDb is an excellent C# database that can be used as an embedded db on any .net project (Windows, Mac, iOS & Android (Xamarin), Linux, etc).
+S3NoSql borrows heavily from LiteDb (https://github.com/mbdavid/LiteDB/).   Had I realized just how little would need to be reworked at the start I would have just forked the repo.  LiteDb was designed as a c# native embedded database after MongoDb concepts.  LiteDb is an excellent C# database that can be used as an embedded db on any .net project (Windows, Mac, iOS & Android (Xamarin), Linux, etc).
 
 
 ## Database Structure

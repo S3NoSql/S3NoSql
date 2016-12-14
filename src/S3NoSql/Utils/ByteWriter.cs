@@ -194,11 +194,11 @@ namespace S3NoSql.Utils
             this.Write(value.ToByteArray());
         }
 
-        //public void Write(PageAddress value)
-        //{
-        //    this.Write(value.PageID);
-        //    this.Write(value.Index);
-        //}
+        public void Write(PageAddress value)
+        {
+            this.Write(value.PageID);
+            this.Write(value.Index);
+        }
 
         public void WriteBsonValue(BsonValue value, ushort length)
         {

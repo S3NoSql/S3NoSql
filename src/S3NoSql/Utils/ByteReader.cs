@@ -5,6 +5,7 @@ using System;
 using System.Text;
 using S3NoSql.Document;
 using S3NoSql.Document.Bson;
+using S3NoSql.Engine.Structures;
 
 namespace S3NoSql.Utils
 {
@@ -137,10 +138,10 @@ namespace S3NoSql.Utils
             return new ObjectId(this.ReadBytes(12));
         }
 
-        //public PageAddress ReadPageAddress()
-        //{
-        //    return new PageAddress(this.ReadUInt32(), this.ReadUInt16());
-        //}
+        public PageAddress ReadPageAddress()
+        {
+            return new PageAddress(this.ReadUInt32(), this.ReadUInt16());
+        }
 
         public BsonValue ReadBsonValue(ushort length)
         {

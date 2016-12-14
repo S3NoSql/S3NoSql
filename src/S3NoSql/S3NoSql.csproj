@@ -99,6 +99,19 @@
     <Compile Include="Engine\Engine\Aggregate.cs" />
     <Compile Include="Utils\S3Helper.cs" />
     <Compile Include="Utils\Extensions\StreamExtensions.cs" />
+    <Compile Include="Engine\Pages\BasePage.cs" />
+    <Compile Include="Engine\Pages\EmptyPage.cs" />
+    <Compile Include="Engine\Pages\IndexPage.cs" />
+    <Compile Include="Engine\Enums\PageType.cs" />
+    <Compile Include="Engine\Structures\IndexInfo.cs" />
+    <Compile Include="Engine\Structures\IndexNode.cs" />
+    <Compile Include="Engine\Structures\CollectionIndex.cs" />
+    <Compile Include="Engine\Structures\PageAddress.cs" />
+    <Compile Include="Engine\Pages\CollectionPage.cs" />
+    <Compile Include="Engine\Disks\IDiskService.cs" />
+    <Compile Include="Engine\Services\PageService.cs" />
+    <Compile Include="Utils\AesEncryption.cs" />
+    <Compile Include="Engine\Pages\HeaderPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="project.json" />
@@ -112,6 +125,7 @@
     <Folder Include="Mapper\Linq\" />
     <Folder Include="Engine\Queries\" />
     <Folder Include="Storage\" />
+    <Folder Include="Engine\Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

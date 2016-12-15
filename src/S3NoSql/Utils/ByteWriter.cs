@@ -5,6 +5,7 @@ using System;
 using System.Text;
 using S3NoSql.Document;
 using S3NoSql.Document.Bson;
+using S3NoSql.Engine.Structures;
 
 namespace S3NoSql.Utils
 {

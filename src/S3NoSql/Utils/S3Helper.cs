@@ -98,6 +98,46 @@ namespace S3NoSql.Utils
             Task.WaitAll(task);
         }
 
+        public static void WritePage(
+            IAmazonS3 _s3Client,
+            string _bucketName,
+            string _databaseName,
+            uint _pageNumber,
+            Stream _dataStream)
+        {
+            string key = S3NamingHelper.GetPageFile(_databaseName, _pageNumber);
+
+            PutObjectRequest request = new PutObjectRequest()
+            {
+                BucketName = _bucketName,
+                Key = key,
+                ContentType = "application/binary",
+                InputStream = _dataStream
+            };
+
+            Task<PutObjectResponse> task = _s3Client.PutObjectAsync(request);
+            Task.WaitAll(task);
+        }
+
+        public static async Task<Stream> ReadPage(
+            IAmazonS3 _s3Client,
+            string _bucketName,
+            string _databaseName,
+            uint _pageNumber)
+        {
+            string key = S3NamingHelper.GetPageFile(_databaseName, _pageNumber);
+
+            GetObjectRequest request = new GetObjectRequest()
+            {
+                BucketName = _bucketName,
+                Key = key
+            };
+
+            GetObjectResponse response = await _s3Client.GetObjectAsync(request);
+
+            return response.ResponseStream;
+        }
+
         public static async Task<Stream> ReadBinary(
             IAmazonS3 _s3Client,
             string _bucketName,

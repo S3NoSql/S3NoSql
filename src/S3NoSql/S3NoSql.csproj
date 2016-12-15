@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -19,7 +19,8 @@
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath></IntermediateOutputPath>
+    <IntermediateOutputPath>
+    </IntermediateOutputPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
@@ -28,6 +29,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Engine\Disks\S3DiskService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Database\S3NoSqlDatabase.cs" />
     <Compile Include="Database\Collections\S3NoSqlCollection.cs" />
@@ -117,15 +119,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Database\" />
-    <Folder Include="Database\Collections\" />
-    <Folder Include="Utils\" />
-    <Folder Include="Utils\Extensions\" />
-    <Folder Include="Engine\" />
     <Folder Include="Mapper\Linq\" />
-    <Folder Include="Engine\Queries\" />
-    <Folder Include="Storage\" />
-    <Folder Include="Engine\Enums\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

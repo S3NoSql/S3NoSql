@@ -1,4 +1,5 @@
-﻿using System;
+﻿using S3NoSql.Engine.Pages;
+using System;
 using System.Text.RegularExpressions;
 
 namespace S3NoSql.Engine.Structures

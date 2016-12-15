@@ -38,6 +38,13 @@ namespace S3NoSql.Utils
             return string.Format("{0}/{1}/{2}.bin", databaseName, collectionName, documentId);
         }
 
+        public static string GetPageFile(string _databaseName, uint pageNumber)
+        {
+            string databaseName = FormatName(_databaseName);
+            
+            return string.Format("{0}/{1}/{2}.page", databaseName, pageNumber);
+        }
+
         private static void ValidateName(string _sourceName)
         {
             _sourceName.IsNullOrWhiteSpace();

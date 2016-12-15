@@ -4,6 +4,7 @@
 using System;
 using System.Reflection;
 using S3NoSql.Document;
+using S3NoSql.Engine.Structures;
 
 namespace S3NoSql.Utils
 {
@@ -91,6 +92,10 @@ namespace S3NoSql.Utils
             return new S3NoSqlException(INVALID_DATABASE_VERSION, "Invalid database version: {0}", version);
         }
 
+        internal static S3NoSqlException IndexLimitExceeded(string collection)
+        {
+            return new S3NoSqlException(INDEX_LIMIT_EXCEEDED, "Collection '{0}' exceeded the maximum limit of indices: {1}", collection, CollectionIndex.INDEX_PER_COLLECTION);
+        }
 
         internal static S3NoSqlException CollectionLimitExceeded(int limit)
         {

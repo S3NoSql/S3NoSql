@@ -58,7 +58,7 @@ namespace S3NoSql.Database.Collections
         {
             if (id == null || id.IsNull) throw new ArgumentNullException("id");
 
-            IEnumerable<T> results = Find(Query.EQ("_id", id));
+            IEnumerable<T> results = Find(Query.EQ("id", id));
             return results.SingleOrDefault();
         }
 
